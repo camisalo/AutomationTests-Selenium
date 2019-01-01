@@ -44,10 +44,14 @@ public class CheckSearchEngine {
 
         WebElement search_button = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/button"));
         action.click(search_button).perform();
+        Thread.sleep(1000);
 
-        WebElement first_result = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[1]/div[2]/span"));
-        Thread.sleep(1500);
-        String res = first_result.getText();
+        String res = "";
+        if (isElementPresent(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[1]/div[2]/span"))) {
+            WebElement first_result = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[1]/div[2]/span"));
+            Thread.sleep(1500);
+            res = first_result.getText();
+        }
 
         driver.close();
 
@@ -67,14 +71,28 @@ public class CheckSearchEngine {
 
         WebElement search_button = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/button"));
         action.click(search_button).perform();
+        Thread.sleep(1000);
 
-        WebElement first_result = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[2]/div[2]/span"));
-        Thread.sleep(1500);
-        String res = first_result.getText();
+        String res = "";
+
+        if (isElementPresent(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[2]/div[2]/span"))) {
+            WebElement first_result = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[3]/div[2]/div[2]/span"));
+            Thread.sleep(1500);
+            res = first_result.getText();
+        }
 
         driver.close();
 
         return res;
+    }
+
+    private boolean isElementPresent(By locatorKey) {
+        try {
+            driver.findElement(locatorKey);
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
 }

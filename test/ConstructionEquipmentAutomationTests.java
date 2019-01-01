@@ -51,7 +51,7 @@ public class ConstructionEquipmentAutomationTests {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        assertEquals("Sukces",result);
+        assertEquals("Koparka do testów 1",result);
     }
 
     @Test
