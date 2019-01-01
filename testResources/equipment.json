@@ -1,0 +1,28 @@
+[
+  {
+    "Category":"Koparki",
+    "Name":"Koparka do testów 1",
+    "Manufacturer":"Test",
+    "Description":"Opis Test",
+    "PricePerDay":150,
+    "ShippingPricePerKilometer":2.50,
+    "IsAvailable":true,
+    "Address":"nad serafą 53A",
+    "City":"Kraków",
+    "ZipCode":30864,
+    "Voivodeship":"Małopolskie"
+  },
+  {
+    "Category":"Koparki",
+    "Name":"Koparka do testów 2",
+    "Manufacturer":"Test",
+    "Description":"Opis Test",
+    "PricePerDay":300,
+    "ShippingPricePerKilometer":1.60,
+    "IsAvailable":true,
+    "Address":"nad serafą 53A",
+    "City":"Kraków",
+    "ZipCode":30864,
+    "Voivodeship":"Małopolskie"
+  }
+]
