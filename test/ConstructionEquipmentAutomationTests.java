@@ -1,10 +1,23 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
 public class ConstructionEquipmentAutomationTests {
+
+    @BeforeAll
+    public static void PrepareTotest() {
+        Prepare prep = new Prepare();
+        try {
+            prep.startPrepare();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
 
     @Test
     public void checkUserRegistration(){
