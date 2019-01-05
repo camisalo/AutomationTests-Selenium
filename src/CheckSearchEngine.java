@@ -39,7 +39,7 @@ public class CheckSearchEngine {
         Actions action = new Actions(driver);
         action.click(category).perform();
 
-        WebElement category_drop = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[1]/div/div/a[2]"));
+        WebElement category_drop = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[1]/div/div/a[3]"));
         action.click(category_drop).perform();
 
         WebElement search_button = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/button"));

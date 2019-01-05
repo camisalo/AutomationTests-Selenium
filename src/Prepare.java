@@ -1,7 +1,4 @@
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -66,7 +63,12 @@ public class Prepare {
         action.click(l_button).perform();
         Thread.sleep(500);
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1000)");
+        Thread.sleep(500);
+
         WebElement api = driver.findElement(By.xpath("//*[@id=\"api\"]"));
+        api.clear();
         api.sendKeys("https://localhost:5001/api/equipments");
 
         WebElement save = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/button[2]"));
@@ -74,13 +76,15 @@ public class Prepare {
         Thread.sleep(500);
 
         alert = driver.switchTo().alert();
-        System.out.println(alert.getText());
         alert.accept();
+        Thread.sleep(500);
+
+        js.executeScript("window.scrollBy(0,-1000)");
         Thread.sleep(500);
 
         WebElement logout = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/button[1]"));
         action.click(logout).perform();
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         driver.close();
     }

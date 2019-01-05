@@ -76,7 +76,7 @@ public class ConstructionEquipmentAutomationTests {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        assertEquals("Minikoparka 980/1138 kg",result);
+        assertEquals("Ubijak wibracyjny 72 kg",result);
     }
 
     @Test

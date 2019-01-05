@@ -85,8 +85,9 @@ public class CheckAddJSONFile {
 
         js.executeScript("window.scrollBy(0,-1000)");
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/button[1]")).click();
+        Thread.sleep(500);
 
-        Thread.sleep(1000);
+        driver.close();
 
         return res;
     }
