@@ -73,7 +73,8 @@ public class CheckAddJSONFile {
         WebElement uploadElement = driver.findElement(By.xpath("//*[@id=\"equipment-json\"]"));
 
         // enter the file path onto the file-selection input field
-        uploadElement.sendKeys("D:\\JAVA Projekty\\AutomationTests-Selenium\\testResources\\equipment.json");
+        System.out.println(System.getProperty("user.dir")+"\\..\\testResources\\equipment.json");
+        uploadElement.sendKeys(System.getProperty("user.dir")+"\\testResources\\equipment.json");
 
         // check the "I accept the terms of service" check box
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/button[2]")).click();

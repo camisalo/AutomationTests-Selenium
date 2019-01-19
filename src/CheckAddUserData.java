@@ -132,7 +132,6 @@ public class CheckAddUserData {
         Thread.sleep(1000);
         String res = u_nip.getAttribute("value");
 
-        System.out.println("aaaaa" + res);
         driver.close();
 
         return res;
