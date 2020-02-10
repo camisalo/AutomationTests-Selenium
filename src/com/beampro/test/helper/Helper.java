@@ -41,7 +41,13 @@ public class Helper {
 
     public void checkValue(String xpath, String value) {
         WebElement element = driver.findElement(By.xpath(xpath));
-        Assertions.assertEquals(element.getText(),value);
+        if (element.getTagName().equals("input")){
+            Assertions.assertEquals(value, element.getAttribute("value"));
+        } else if (element.getTagName().equals("img")) {
+            Assertions.assertEquals(value, element.getAttribute("src"));
+        } else {
+            Assertions.assertEquals(value, element.getText());
+        }
     }
 
     public void selectDropDown(String xpath,String visibleText) {
