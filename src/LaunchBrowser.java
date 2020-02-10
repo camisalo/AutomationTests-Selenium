@@ -12,7 +12,7 @@ public class LaunchBrowser {
     public static WebDriver driver = null;
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\webDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/kgebczyn/Studia/Praca Dyplomowa/selenium/AutomationTests-Selenium/driver/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
