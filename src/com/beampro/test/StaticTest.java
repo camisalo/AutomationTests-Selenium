@@ -1,11 +1,8 @@
 package com.beampro.test;
 
 import com.beampro.test.helper.Helper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +16,7 @@ public class StaticTest {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         helper = new Helper(driver);
         driver.navigate().to("localhost:3000");
+        driver.manage().window().maximize();
 
 
         helper.clickButton("//*[@id=\"root\"]/div/div[1]/div[2]/div/a[3]");

@@ -47,7 +47,7 @@ public class BeamProCalculationTest {
     }
 
     @Test
-    public void checkCerticalCalcTest() throws InterruptedException {
+    public void checkVerticalCalcTest() throws InterruptedException {
         CalculationTest test = new CalculationTest();
         test.checkVertivalCalc();
         test.close();

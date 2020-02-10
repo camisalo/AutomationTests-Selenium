@@ -16,6 +16,8 @@ public class CalculationTest {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         helper = new Helper(driver);
         driver.navigate().to("localhost:3000");
+        driver.manage().window().maximize();
+
 
 
         helper.clickButton("//*[@id=\"root\"]/div/div[1]/div[2]/div/a[2]");
@@ -46,8 +48,9 @@ public class CalculationTest {
         helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[2]/table/tbody/tr[6]/td[2]", "200 GPa");
     }
 
-    public void changeConcrete() {
+    public void changeConcrete() throws InterruptedException {
         helper.selectDropDown("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/select", "C20/25");
+        Thread.sleep(1000);
 
         helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[1]/td[2]", "C20/25");
         helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[2]/td[2]", "20 MPa");
@@ -113,17 +116,30 @@ public class CalculationTest {
     }
 
     public void checkVertivalCalc() throws InterruptedException {
-        this.takeMaxMoment();
+        this.takeMaxVerticalForce();
 
         helper.clickButton("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[2]/button[2]");
         Thread.sleep(1000);
 
         helper.scrollToElement("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div");
 
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[2]","128.57 kN");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[2]","1.59");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[2]","0.15");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[2]","1.09 %");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[5]/td[2]","0.24");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[6]/td[2]","55.43 kN");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[7]/td[2]","45");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[8]/td[2]","1");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[9]/td[2]","51.75 cm");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[10]/td[2]","0.57");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[11]/td[2]","253.37 kN");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[1]/div/table/tbody/tr[12]/td[2]","2");
 
-
-
-
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[3]/div/table[1]/tbody/tr/td[3]/img","http://localhost:3000/img/check.png");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[3]/div/table[2]/tbody/tr/td[3]/img","http://localhost:3000/img/check.png");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[3]/div/table[3]/tbody/tr[1]/td[3]/img","http://localhost:3000/img/check.png");
+        helper.checkValue("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[4]/div[3]/div/div[3]/div/table[3]/tbody/tr[2]/td[3]/img","http://localhost:3000/img/check.png");
 
     }
 }
